@@ -28,37 +28,25 @@ body {
 }
 
 .default-text {
+  @apply text-base;
   color: var(--text-color);
-  font-size: var(--text-base);
-  line-height: var(--tw-leading, var(--text-base--line-height));
 }
 
 .primary-button {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-radius: 4px;
-  font-size: var(--text-base);
+  @apply border-1 border-solid rounded-sm text-base px-[8px] py-[2px] cursor-pointer;
   color: var(--primary-color);
   border-color: var(--primary-color);
-  padding: 2px 8px;
-  cursor: pointer;
 }
 
 .secondary-button {
-  border-style: var(--tw-border-style);
-  border-width: 1px;
-  border-radius: 4px;
-  font-size: var(--text-base);
+  @apply border-1 border-solid rounded-sm text-base px-[8px] py-[2px] cursor-pointer;
   color: var(--secondary-color);
   border-color: var(--secondary-color);
-  padding: 2px 8px;
-  cursor: pointer;
 }
 
 .link {
-  font-size: var(--text-base);
+  @apply text-base cursor-pointer;
   color: var(--primary-color);
-  cursor: pointer;
 }
 
 .subtle-text {
