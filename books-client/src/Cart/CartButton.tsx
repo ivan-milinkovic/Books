@@ -22,20 +22,25 @@ const CartButton = ({ hover }: Props) => {
   }
 
   return (
-    <span onMouseEnter={onHover} onMouseLeave={onHoverEnd}>
+    // see: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_display/Containing_block#identifying_the_containing_block
+    <div
+      className="relative inline-block"
+      onMouseEnter={onHover}
+      onMouseLeave={onHoverEnd}
+    >
       <Link to="/cart" className="inline w-[50px] h-[30px] cursor-pointer">
         Cart
       </Link>
       {showPreview && (
         <div
-          className="absolute end-14 top-[36px] border subtle-background"
+          className="absolute end-0 top-6 border subtle-background"
           onMouseEnter={onHover}
           onMouseLeave={onHoverEnd}
         >
           <CartDetails />
         </div>
       )}
-    </span>
+    </div>
   );
 };
 
