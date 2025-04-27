@@ -29,7 +29,7 @@ export const BookCard = ({ book }: Props) => {
     >
       {book.image && <img src={bgImageUrl} alt="" className="rounded-t-2xl" />}
       <div className="text-shadow-lg/30 backdrop-blur-md rounded-2xl p-2">
-        <Link to={`/books/${book.id}`} className="text-2xl">
+        <Link to={`/books/${book.id}`} target="_blank" className="text-2xl">
           {book.title}
         </Link>
         <br />

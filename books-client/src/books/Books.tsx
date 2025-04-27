@@ -38,6 +38,10 @@ const Books = () => {
     setFilter(filterInfo);
   }, []);
 
+  const handleLastElementVisible = useCallback(() => {
+    booksQuery.fetchNextPage();
+  }, [booksQuery]);
+
   return (
     <>
       <div>
@@ -57,9 +61,7 @@ const Books = () => {
       <div>
         <BooksList
           books={books}
-          handleLastElementVisible={() => {
-            booksQuery.fetchNextPage();
-          }}
+          handleLastElementVisible={handleLastElementVisible}
         />
       </div>
 

@@ -23,7 +23,7 @@ const TokenizedInput = ({ tokens, initialSelection, handleOutput }: Props) => {
   useEffect(() => {
     setSelectedIds(allIds.filter((id) => initialSelection.includes(id)));
     setRemainingIds(allIds.filter((id) => !initialSelection.includes(id)));
-  }, [initialSelection]);
+  }, [initialSelection, allIds]);
 
   function addSelection(tokenId: string) {
     const newSelectedIds = [...selectedIds, tokenId];

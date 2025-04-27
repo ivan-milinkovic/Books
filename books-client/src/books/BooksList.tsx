@@ -18,7 +18,7 @@ export const BooksList = ({ books, handleLastElementVisible }: Props) => {
       });
       if (node) observer.current.observe(node);
     },
-    [books]
+    [books, handleLastElementVisible]
   );
 
   return (
