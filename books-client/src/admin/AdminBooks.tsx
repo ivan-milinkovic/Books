@@ -5,7 +5,7 @@ import AuthorForm from "./AuthorForm";
 import Filters from "../components/Filters";
 import useDebounce from "../components/useDebounce";
 import { AdminGetBooksQuery } from "../queries/queryKeys";
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { Modal } from "../modal/Modal";
 import { useAuthorsSuspenseQuery } from "../queries/authorsQuery";
 import { useGenresSuspenseQuery } from "../queries/genresQuery";
@@ -95,9 +95,9 @@ const AdminBooks = () => {
     if (changed) authorsQuery.refetch();
   }
 
-  function handleFiltersUpdate(filterInfo: FilterInfo) {
+  const handleFiltersUpdate = useCallback((filterInfo: FilterInfo) => {
     setFilter(filterInfo);
-  }
+  }, []);
 
   function onResetDb() {
     resetDb();

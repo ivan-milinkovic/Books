@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { useGenresSuspenseQuery } from "../queries/genresQuery";
-import TagsPicker from "./TagsPicker";
 import { FilterInfo } from "../model/model";
+import TagsPicker from "./TagsPicker";
 
 type Props = {
+  /** Must be wrapped in a useCallback in a parent component, because it always calls-back, otherwise infinite re-render */
   handleFiltersUpdate: (filterInfo: FilterInfo) => void;
 };
 
@@ -58,7 +59,7 @@ export default function Filters({ handleFiltersUpdate }: Props) {
       genresFilter: selectedGenreIds,
     };
     handleFiltersUpdate(filterInfo);
-  }, [title, authors, selectedGenreIds]); // putting handleFiltersUpdate here creates an infinite render loop
+  }, [title, authors, selectedGenreIds, handleFiltersUpdate]); // handleFiltersUpdate must be defined using useCallback, otherwise infinite re-render
 
   return (
     <div className="max-w-[700px]">

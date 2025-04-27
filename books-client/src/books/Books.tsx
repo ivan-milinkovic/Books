@@ -1,12 +1,12 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { GetBooksQuery } from "../queries/queryKeys";
 import { BooksList } from "./BooksList";
 import { useFilteredBooksInfiniteQuery } from "../queries/booksQuery";
 import { LoadNextButton, LoadPrevButton } from "../components/LoadButtons";
+import { FilterInfo, makeEmptyFilter, queryFromFilter } from "../model/model";
 import Filters from "../components/Filters";
 import useDebounce from "../components/useDebounce";
 import Loading from "../Loading";
-import { FilterInfo, makeEmptyFilter, queryFromFilter } from "../model/model";
 
 const PageSize = 10;
 const MaxPages = 3;
@@ -33,9 +33,10 @@ const Books = () => {
     return booksData.pages.flatMap((page) => page.books); // infinite query stores data per page, so flatten into one array
   }, [booksData]);
 
-  function handleFiltersUpdate(filterInfo: FilterInfo) {
+  // useCallback to avoid infinite re-render
+  const handleFiltersUpdate = useCallback((filterInfo: FilterInfo) => {
     setFilter(filterInfo);
-  }
+  }, []);
 
   return (
     <>
