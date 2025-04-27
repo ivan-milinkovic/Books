@@ -1,11 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router";
-import Loading from "../Loading";
 import { Author, Book, Genre } from "../model/model";
 import { apiAxios } from "../axios";
-import useCart from "../cart/useCart";
 import { ApiUrl } from "../apiConfig";
 import { formatDateFromString } from "../components/dateUtil";
+import Loading from "../Loading";
+import useCart from "../cart/useCart";
 
 const BookDetails = () => {
   const { bookId } = useParams();
