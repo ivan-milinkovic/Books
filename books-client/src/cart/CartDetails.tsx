@@ -16,8 +16,8 @@ const CartDetails = () => {
         </thead>
         <tbody>
           {cart.cartState.books.map((b) => (
-            <tr key={b.id} className="border">
-              <td>{b.title}</td>
+            <tr key={b.id} className="">
+              <td className="min-w-[100px] max-w-1/4">{b.title}</td>
               <td>{b.price}</td>
               <td>
                 <button
