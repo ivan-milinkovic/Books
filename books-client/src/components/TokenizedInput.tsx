@@ -14,7 +14,7 @@ type Props = {
 const MaxSuggestions = 10;
 
 const TokenizedInput = ({ tokens, initialSelection, handleOutput }: Props) => {
-  const allIds = tokens.map((t) => t.id);
+  const allIds = useMemo(() => tokens.map((t) => t.id), [tokens]);
   const [selectedIds, setSelectedIds] = useState<string[]>([]);
   const [remainingIds, setRemainingIds] = useState<string[]>([]);
   const [suggestions, setSuggestions] = useState<TokenizedInputToken[]>([]);
