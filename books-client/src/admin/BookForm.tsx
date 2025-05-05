@@ -2,9 +2,9 @@ import { useForm } from "react-hook-form";
 import { Author, Book, Genre, Genres } from "../model/model";
 import { memo, useEffect, useState } from "react";
 import { postBook, updateBook } from "../apiFunctions";
-import TokenizedInput from "../components/TokenInput";
 import { ApiUrl } from "../apiConfig";
 import { makeInputDate, makeInputDateFromString } from "../components/dateUtil";
+import TokenizedInput from "../components/TokenizedInput";
 
 type Props = {
   editBook: Book | undefined;
